@@ -1,0 +1,68 @@
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+darkBlue = #0C4A6E
+lightBlue = #D9E2EB
+mediumBlue = rgba(12, 74, 110, 0.5)
+
+.center
+  top 50%
+  left 50%
+  transform translate(-50%, -50%)
+
+::-webkit-scrollbar
+  width 8px
+
+::-webkit-scrollbar-track
+  background-color darkBlue
+
+::-webkit-scrollbar-thumb
+  border 1px solid lightBlue
+  background-color lightBlue
+
+.splide
+  &.splide--slide 
+    @extend .center
+    border 2px solid mediumBlue
+    border-radius 10px
+    background-color lightBlue
+    width 90vw
+    height 80vh
+
+.splide
+  .splide__pagination__page
+    &.is-active 
+      background-color darkBlue
+    &:hover 
+      background-color mediumBlue
+
+button
+  &.splide__arrow
+    &:hover
+      svg
+        fill mediumBlue
+    svg 
+      fill darkBlue
+
+.splide.splide--slide .splide__track img 
+  @extend .center
+  position absolute
+  background-color white
+
+.splide.splide--slide
+  .splide__track
+  .splide__slider
+  .splide__list
+  .splide__list .splide__slide
+    height 100%
+    max-height 100%
+
+.splide__slide
+  @extend .center
+
+.gatsby-image-wrapper.gatsby-image-wrapper-constrained
+  @extend .center
+
+.gatsby-image-wrapper-constrained
+  max-height 100%

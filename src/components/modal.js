@@ -3,13 +3,13 @@ import { StaticImage } from "gatsby-plugin-image"
 import Slideshow from "../components/slideshow"
 import Modal from "@material-ui/core/Modal"
 
-export default (props) => {
+const Dialog = (props) => {
   const [open, setOpen] = React.useState(false)
 
   const handleOpen = () => {
     setOpen(true)
   }
-
+  
   const handleClose = () => {
     setOpen(false)
   }
@@ -43,3 +43,5 @@ export default (props) => {
     </div>
   )
 }
+
+export default Dialog

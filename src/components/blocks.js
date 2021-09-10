@@ -44,7 +44,7 @@ const list = [
     type: "Coursework",
     date: "2020.06",
     tag: ["Coursework", "OperatorApp"],
-    description: "Web app designed for operators in amusement park setting. Group project in course Agile Development Processes. Created the initial UI design with InVision. Worked on backend and most frontend parts.",
+    description: "Web app designed for operators in amusement park setting. Group project in course Agile Development Processes. Created the initial UI design with InVision. Worked on backend and most of frontend parts.",
     tech: ["Vue.js", "Node.js", "Express.js", "Webpack", "SCSS", "Bootstrap", "MongoDB", "Axios"],
   },
   {
@@ -101,7 +101,8 @@ const getColour = (type) => {
       }
   }
 }
-export default (props) => {
+
+const Blocks = (props) => {
   return (
     <div>
       {
@@ -110,12 +111,12 @@ export default (props) => {
             <div style={blockStyles} className={"relative z-0 py-8 px-5 sm:px-10 " + getColour(item.type).background}>
               <div className="max-w-3xl max-h-xl md:grid md:grid-cols-4 md:grid-rows-3 p-6">
                 <div className={"tags font-bold text-base md:text-3xl md:col-span-4 " + getColour(item.type).title}>
-                    {item.tag.map(tag => (
-                      <div>#{tag}</div>
-                    ))}
+                  {item.tag.map(tag => (
+                    <div>#{tag}</div>
+                  ))}
                 </div>
                 <div className="icons pt-4 pb-10 md:py-0 md:col-start-1 md:col-span-2 md:row-start-2 md:row-span-2 md:pt-8">
-                  <Dialog images={props.images.allFile.edges.filter(node => node.node.relativeDirectory == "projects/" + `${item.name}` )} code={item.code} link={item.link} />
+                  <Dialog images={props.images.allFile.edges.filter(node => node.node.relativeDirectory === "projects/" + item.name )} code={item.code} link={item.link} />
                 </div>
                 <div className={"description text-xs md:text-base font-medium md:col-span-2 md:row-span-2 md:pt-8 " + getColour(item.type).text}>
                   <div className="md:pb-8">{item.description}</div>
@@ -136,3 +137,5 @@ export default (props) => {
     </div>
   )
 }
+
+export default Blocks

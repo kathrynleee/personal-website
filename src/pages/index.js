@@ -17,7 +17,7 @@ export default IndexPage
 
 export const query = graphql`
   query Screenshots {
-    allFile(filter: {extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
+    allFile(filter: {extension: {regex: "/(jpg)|(jpeg)|(png)/"}}, sort: { fields: [name], order: ASC }) {
       edges {
         node {
           name

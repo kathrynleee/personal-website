@@ -2,6 +2,7 @@ import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/splide/dist/css/themes/splide-sea-green.min.css"
+import CircularProgress from "@material-ui/core/CircularProgress"
 
 const Slideshow = (props) => {
   if (typeof window === "undefined") {
@@ -32,6 +33,9 @@ const Slideshow = (props) => {
         <SplideSlide>
           <div className="flex justify-center h-full max-h-full">
             <div className="h-full max-h-full">
+              <div className="center absolute">
+                <CircularProgress />
+              </div>
               <GatsbyImage imgStyle={{ objectFit: "contain" }} alt={image.node.name} image={getImage(image.node.childImageSharp)} width={image.node.childImageSharp.gatsbyImageData.width} height={image.node.childImageSharp.gatsbyImageData.height} /> 
             </div>
           </div>

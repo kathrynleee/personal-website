@@ -17,6 +17,16 @@ const Slideshow = (props) => {
         gap: "1rem",
       }}
       hasSliderWrapper
+      onMove={(prev, next) => {
+        if(next === 0) {
+          document.querySelector(".splide__arrow--prev").style.display = "none"
+        } else if(next === props.images.length - 1) {
+          document.querySelector(".splide__arrow--next").style.display = "none"
+        } else {
+          document.querySelector(".splide__arrow--prev").style.display = "block"
+          document.querySelector(".splide__arrow--next").style.display = "block"
+        }
+      }}
     >
       {props.images.map(image => (
         <SplideSlide>
